@@ -1,4 +1,5 @@
-loadUploadcare = function () {
+loadUploadcare = function (ver) {
+  ver=ver || "2.5.5"
   var config = {};
   var callback = _.noop;
   if (UploadcareSettings.publicSettings()) {
@@ -35,7 +36,7 @@ loadUploadcare = function () {
         // Generate a script tag
         var script = document.createElement("script");
         script.type = "text/javascript";
-        script.src = "//ucarecdn.com/widget/1.5.0/uploadcare/uploadcare-1.5.0.min.js";
+        script.src = "//ucarecdn.com/widget/"+ver+"/uploadcare/uploadcare-"+ver+".min.js";
         script.onload = uploadcareLoadCallback;
         script.onerror = uploadcareErrorCallback;
 

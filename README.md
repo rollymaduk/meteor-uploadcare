@@ -30,6 +30,11 @@ Load once for your whole application at startup or as needed from template creat
 loadUploadcare();
 //the key should be set in settings
 ```
+Or you can specify the client version number as a parameter for the method
+```
+loadUploadcare(ver);
+//ver is a string representing the version number e.g '2.5.5'
+```
 
 You can call this over and over again.  It will detect if uploadcare has already been loaded, only loading the script when needed.
 
@@ -41,6 +46,15 @@ Router.onBeforeAction(function(){
   loadUploadcare();
   },{only:['<ROUTE NAME>','<ROUTE NAME>']});
 ```
+OR
+```
+Router.onBeforeAction(function(){
+  loadUploadcare(ver);
+  },{only:['<ROUTE NAME>','<ROUTE NAME>']});
+```
+
+
+
 
 ## Start uploading right now:
 

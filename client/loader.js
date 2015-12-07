@@ -1,7 +1,7 @@
 loadUploadcare = function (ver) {
-  ver=ver || "2.5.5"
+  ver=ver || "2.5.5";
   var config = {};
-  var callback = _.noop;
+  /*var callback = _.noop;*/
   if (UploadcareSettings.publicSettings()) {
     config = UploadcareSettings.publicSettings();
   }
@@ -9,9 +9,11 @@ loadUploadcare = function (ver) {
   if (typeof(firstArg) === "object") {
     config = _.extend(config, firstArg);
     callback = [].pop.apply(arguments);
+
   }
   else if (typeof(firstArg) === "function") {
     callback = firstArg;
+
   }
 
 
@@ -21,6 +23,7 @@ loadUploadcare = function (ver) {
       // Functions to run after the script tag has loaded
       var uploadcareLoadCallback = function () {
         window.UPLOADCARE_PUBLIC_KEY = key;
+        window.UPLOADCARE_LIVE=false;
 
         if (callback && typeof(callback) == "function")
           callback();

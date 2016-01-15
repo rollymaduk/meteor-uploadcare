@@ -19,6 +19,7 @@ Package.onUse(function(api) {
 	api.add_files([ "client/lib/loader.js" ], ["client"]);
 	api.add_files([ "client/lib/utility.coffee" ], ["client"]);
 	api.add_files([ "client/afUploadCare.coffee" ], ["client"]);
+    api.add_files([ "client/lib/style.css" ], ["client"]);
 	api.add_files([ "client/afUploadCare.html" ], ["client"]);
 	api.export("loadUploadcare", ["client"]);
 

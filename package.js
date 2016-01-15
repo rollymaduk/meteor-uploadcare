@@ -12,7 +12,14 @@ Package.onUse(function(api) {
 	api.add_files(["both/settings.js"], ["client", "server"]);
 
 	// client
-	api.add_files([ "client/loader.js" ], ["client"]);
+	api.use("templating", ["client"]);
+	api.use("coffeescript");
+	api.use("aldeed:autoform");
+	api.use("aldeed:simple-schema");
+	api.add_files([ "client/lib/loader.js" ], ["client"]);
+	api.add_files([ "client/lib/utility.coffee" ], ["client"]);
+	api.add_files([ "client/afUploadCare.coffee" ], ["client"]);
+	api.add_files([ "client/afUploadCare.html" ], ["client"]);
 	api.export("loadUploadcare", ["client"]);
 
 	// server

@@ -1,6 +1,6 @@
 Meteor.startup ()->
   Template.afUploadCare.rendered=->
-      console.log @
+
       widget = uploadcare.Widget('[role=uploadcare-uploader]')
 
       isMultiple=@data.uc_options.isMultiple

@@ -15,6 +15,24 @@
       return
     return
 
+  getGroupPhotosFromSrc:(uuid,size,callback)->
+    uploadcare.loadFileGroup(uuid).done((fileGroup)->
+      $.when.apply(null, fileGroup.files()).done(()->
+        res=_.map(arguments,(fileInfo)->
+          {thumb:fileInfo.cdnUrl+"-/preview/#{size}x#{size}/",photo:fileInfo.cdnUrl}
+        )
+
+        callback.call this,null,res
+        return
+      )
+      return
+    ).fail(()->
+      callback.call(this,new Meteor.error(101,"failed to download files!"),null)
+      return
+    )
+    return
+
+
   installWidgetPreviewSingle:(widget)->
     img=$("._img-viewer")
     img.css('visibility','hidden')
